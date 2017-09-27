@@ -107,10 +107,10 @@ cd = regresa al usuario
     cd -    
     pwd = /    
 #### 6  Revisar el archivo chipotle.tsv
-> 1834
-> Hay 4624 
-> El pollo
-> Frigoles negros
+> 1834  
+> Hay 4624   
+> El pollo  
+> Frigoles negros  
 
 
 
