@@ -88,24 +88,24 @@ done
     echo "El numero que has ingresado es $numero"
 ```
 #### 5 Explicando los siguiente comandos
-cd = regresa al usuario
-    pwd = te muestra donde te encuentras 
-    ls -al = muestra una lista de archivos ocultos y no ocultos
-    cd . 
-    pwd     (donde te encuentras?) = /home/usuario
-    cd ..  
-    pwd = /home
-    ls -al = muestra la lista en la cual se encuentra la carpeta del usuario y "." y ".."
-    cd ..   
-    pwd = /
-    ls -al = Todos los archivos importantes es decir las configuraciones 
-    cd ..
-    pwd     (que ocurre ahora)  = Se mantiene 
-    cd /etc =  La Guía para Administradores de Redes en Linux
-    ls -al | more = Muestra una lista de todos los archivos incluido los ocultos 
-    cat passwd
-    cd -
-    pwd = /
+cd = regresa al usuario    
+    pwd = te muestra donde te encuentras    
+    ls -al = muestra una lista de archivos ocultos y no ocultos    
+    cd .     
+    pwd     (donde te encuentras?) = /home/usuario    
+    cd ..      
+    pwd = /home    
+    ls -al = muestra la lista en la cual se encuentra la carpeta del usuario y "." y ".."    
+    cd ..       
+    pwd = /    
+    ls -al = Todos los archivos importantes es decir las configuraciones     
+    cd ..    
+    pwd     (que ocurre ahora)  = Se mantiene   
+    cd /etc =  La Guía para Administradores de Redes en Linux  
+    ls -al | more = Muestra una lista de todos los archivos incluido los ocultos     
+    cat passwd    
+    cd -    
+    pwd = /    
 #### 6  Revisar el archivo chipotle.tsv
 > 1834
 > Hay 4624 
