@@ -1,0 +1,112 @@
+---
+title: "Laboratorio4"
+author: "Nelson Sanabio Maldonado"
+date: "24 de setiembre de 2017"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+
+## Ejercicios
+1- Usa R, para calcular las respuesta numéricas de lo siguiente:
+```{r}
+1+2*(3+4)
+4^3+3^(2+1)
+sqrt((4+3)*(2+1))
+((1+2)/(3+4))^2
+
+```
+2- La función **sd** calcula la desviación estándar. Calcular la desviación estándar desde el 0 al 100
+```{r}
+sd(c(0:100))
+
+```
+3- Vea la demostración de símbolos matemáticos, usando **demo(plotmath)**
+
+4- Genera aleatoriamente 1000 mascotas, de las opciones perro, gato, pollo y pez dorado, con la misma probabilidad de que cada uno sea elegido. Muestra los primeros valores de la variable resultante y cuente el número de cada tipo de mascota.
+```{r}
+count <- 0
+contador<-c(0,0,0,0)
+animales <- c("perro","gato","pollo","pez dorado")
+Muestreo <- sample(animales,1000,TRUE)
+while(count!=4){
+        count=count+1
+        contador[count]<-length(Muestreo[Muestreo==animales[count]])
+}
+contador
+```
+5- La *Conjetura de Collatz* señala que para todo número natural *n*, si se realiza la siguiente recursión:
+
+\begin{equation}
+f(x) = \left\lbrace
+\begin{array}{ll}
+        3n+1&  n=2k+1\\
+        n/2 &  n=2k
+\end{array}
+\right.
+\end{equation}
+```{r}
+n <- 100
+pasos <- 1
+while(n!=1){
+if(n %% 2 == 0){
+        n <- n/2
+} else {
+n <- 3*n + 1
+}
+pasos <- pasos + 1
+}
+print(pasos)
+```
+6- Jessica estaba estudiando teoría de números y aprendió el algoritmo de Euclides, pero en la clase estaba
+tan concentrada que no llegó a apuntar correctamente el algoritmo dado por su profesor. A pesar de todo,
+ella recuerda exactamente todas las líneas, pero no el orden correcto. Dadas las siguientes líneas de código,
+reconstruya el algoritmo de Euclides iterativo y use a = 105 + 3 y b = 108 + 9:
+```{r}
+a <- 105+3
+b <- 108+9
+while(b!=0){
+        carry <- a %% b
+        a <- b
+        b <- carry
+
+}
+print(a)
+
+```
+7- Usando la función sample obtenga un muestreo de 10 números en el rango [1, 1000] (con reemplazo) y
+determine la relación entre la cantidad de primos encontrados y el tamaño de la muestra. Según la teoría de
+primos, una cota superior para la cantidad de primos menores o iguales a n es n
+ln(n) , analice cuán preciso es
+esto con este caso y un muestreo de 20 números en el rango de [1, 2000]    
+```{r}
+Muestreo<-sample(1:1000,10,TRUE)
+cont<-0
+numeros<-0
+i<-1
+while(i <= length(Muestreo)){
+        j<-2
+        while(j<=sqrt(Muestreo[i])){
+                if(Muestreo[i]%%2==0){
+                        cont<-cont+1
+                }
+                j<-j+1
+        }
+        if(cont==0){
+                numero <- numero+1;
+                print(numero)
+        }
+i<-i+1
+}
+```
+8 . Supongamos que x es un vector numérico. Explica en detalle, como las siguientes expresiones son evaluadas
+y que valores toman
+```{r}
+x <- c(1:100)
+sum(!is.na(x))
+c(x,x[-(1:length(x))])
+x[length(x) + 1]/length(x)
+sum(x > mean(x))
+```
+
