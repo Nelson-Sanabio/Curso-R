@@ -1,0 +1,100 @@
+---
+title: "Tarea4"
+author: "Nelson Sanabio Maldonado"
+date: "1 de noviembre de 2017"
+output: html_document
+---
+
+1. Supongamos que x es un vector numérico. Explica en detalle, como las siguientes expresiones son evaluadas y que valores toman.
+
+```{r}
+
+# Saber que is.na evalua "numeric" además es verdadero si encuentra NA de lo contrario
+# falso, en el caso de abajo esta usando el negativo(!), entonces como son numeros
+# acontinuación sera 1 pero el arreglo es de 10 numeros y calcula la suma y pues
+# la respuesta es 10, pueda ver el caso de que dentro del arreglo halla algunos NA, en
+# este caso no lo cuenta porque es falso.
+x <- c(1:10,NA)
+x
+sum(!is.na(x))
+
+# El array x[-(1:length(x))] pues en verdad no toma ningun valor del vector x ya que esta siendo multiplicada por un -1 y sabemos que un vector inicia con un indice 1, 
+# es por eso que no imprime el mismo vector
+c(x,x[-(1:length(x))])
+
+#Vemos de que el tamaño del vector x es 10, en este comando sobrepasamos el tamaño,
+#por eso nos ejecuta un NA
+x[length(x) + 1]/length(x)
+
+#La función mean calcula la media del vector x, en la función sum, dentro hay una
+#una condicional que es evaluado a cada numero del arreglo, si cumple entonces va 
+#aumentando en 1. Si el vector contiene un NA entonces el resultado sera NA ya que 
+#NA no es un número
+x <- c(1:10)
+sum(x > mean(x))
+```
+
+
+2. La función seno hiperbólico. Usando sólo operaciones aritméticas y la función exp, escribe una función vectorizada en R, que calcule el sinh.
+```{r}
+sinx <- c()
+vectorizada <- function(x){
+        sinx=(exp(x)-1/exp(x))/2
+        
+        sinx
+}
+vectorizada(x)
+```
+3. Crea un vector de los valores de e^xcos(x) en x = 3, 3.1, 3.2, . . . , 6.
+```{r}
+num <- seq(3,6,0.1)
+vectNum <- exp(num)*cos(num)
+vectNum
+```
+
+4. Usa la función paste para crear el siguiente vector de caracteres de longitud 30
+```{r}
+num<-c(1:30)
+paste("valor",num)
+paste("fn",num,sep = "")
+```
+
+5. ¿Qué retorna DF <- D(expression(cos(x)/sin(x)), "x"). Si ejecutamos el comando x <- pi/4, que retorna eval(DF)?.
+```{r}
+DF <- D(expression(cos(x)/sin(x)),"x") #derivada
+DF
+x<-pi/4
+eval(DF)
+```
+
+6. ¿Puedes explicar los dos siguientes resultados?
+```{r}
+x <- c(0,7,8)
+x[0.9999999999999999]
+numeric(0)
+x[0.99999999999999999]
+0
+
+
+```
+
+7. Usando rep() y seq(), crea los siguientes vectores
+```{r}
+rep(1:4,each=5)
+rep(1:4,5)
+
+```
+8. Usando la función cumprod o otra relacionada, calcula
+```{r}
+A <- seq(3,39,2)
+B <- seq(2,39,2)
+sum(1+cumprod(A)/cumprod(B))
+```
+9. En primer lugar, lanzamos una moneda con dos posibles resultados: o bien cae cara o sello. A continuación, tiramos un dado con 6 posibles resultados: 1, 2, 3, 4, 5 y 6. Genera todos los resultados posibles de esas acciones.
+```{r}
+moneda <- c("C","S")
+dado <- c(1:6)
+expand.grid(X = moneda, Y = dado)
+```
+
+

@@ -1,0 +1,104 @@
+---
+title: "Tarea3"
+author: "Nelson Sanabio Maldonado"
+date: "1 de noviembre de 2017"
+output: html_document
+---
+
+1. Usa R, para calcular las respuesta numéricas de lo siguiente:
+```{r}
+1+2*(3+4)
+4^3+3^(2+1)
+sqrt((4+3)*(2+1))
+((1+2)/(3+4))^2
+```
+
+2. La función sd calcula la desviación estándar. Calcula la desviación estándar desde el 0 al 100.
+
+```{r cars}
+v <- c(1:100)
+sd(v)
+```
+
+3. Ver la demostración de símbolos matemáticos, usando demo(plotmath).
+
+```{r eval=FALSE}
+demo(plotmath)
+```
+
+4. Sea el conjunto de datos
+```{r}
+v <- c(1, 8, 2, 6, 3, 8, 5, 5, 5, 5)
+#"Resolviendo los items"
+sum(v)/10
+log10(v)
+(v-4.4)/2.875
+max(v)-min(v)
+```
+
+5. Escribe expresiones en R que generen vectores conteniendo las siguientes secuencias de vectores.
+```{r}
+3^c(1:50)
+A<-c(1:100)*rep(FALSE:TRUE,2)
+B<-c(1:100)*rep(TRUE:FALSE,2)
+A*A+B
+```
+
+6. Los siguientes son una muestra de observaciones sobre la radiación solar entrante en un invernadero:
+11.1 10.6 6.3 8.8 10.7 11.2 8.9 12.2
+
+```{r}
+solar.radiacion <- c(11.1, 10.6, 6.3, 8.8, 10.7, 11.2, 8.9, 12.2)
+mean(solar.radiacion)
+median(solar.radiacion)
+var(solar.radiacion)
+sr10 <- solar.radiacion+10
+mean(sr10)
+median(sr10)
+var(sr10)
+srm2 <- solar.radiacion-2
+mean(srm2)
+median(srm2)
+var(srm2)
+#Vemos de que la varianza no cambia es decir se mantiene constante, en cambio
+#la media y mediana disminuye y aumenta de acuerdo a la adición en cada observación
+
+```
+
+7. El conjunto de datos rivers se carga cuando R empieza. Mira los datos escribiendo su nombre y luego la tecla de retorno. ¿Cuál es el último valor listado?.
+```{r}
+rivers
+#La longitud del ultimo rio es el valor : 1770
+```
+
+8. El conjunto de datos Orange se almacena como un data frame con tres variables. ¿Cuáles son esas tres variables?.
+
+```{r}
+#Las tres variables son : Tree, age, circumference
+```
+9. Calcula la edad media de los árboles en el conjunto de datosOrange usando mean.
+```{r}
+matriz <- data.matrix(Orange)
+mean(matriz[1:35])
+
+```
+
+10. Calcula la circunferencia más grande de los árboles en el conjunto de datos Orange.
+
+```{r}
+max(matriz[71:105])
+```
+
+13. Genera aleatoriamente 1.000 mascotas , de las opciones perro, gato, pollo y pez dorado, con la misma probabilidad de que cada uno sea elegido. Muestra los primeros valores de la variable resultante y cuente el número de cada tipo de mascota.
+
+```{r}
+count <- 0
+contador<-c(0,0,0,0)
+animales <- c("perro","gato","pollo","pez dorado")
+Muestreo <- sample(animales,1000,TRUE)
+while(count!=4){
+        count=count+1
+        contador[count]<-length(Muestreo[Muestreo==animales[count]])
+}
+contador
+```
