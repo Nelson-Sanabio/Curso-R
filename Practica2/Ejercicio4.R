@@ -34,7 +34,7 @@ primero<- function(x,k=1)
         else  x[-c(1:k)]
 }
 ultimo <- function(x,k=1){
-        if (k > length(x))        x<-rep("NA",k-length(x)+1)
+        if (k > length(x))        c(rep(NA,k-length(x)),x)
         else    x[-c(1:k)]
 }
 

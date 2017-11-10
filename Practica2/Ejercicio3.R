@@ -1,7 +1,7 @@
 # NOMBRE : Nelson Sanabio Maldonado
 # Respuesta 3 :
 #Creando la funcion nth
-nth<- function(x,n){
+nth <- function(x,n){
         m <- which(x)
         cat(m[n])
 }
