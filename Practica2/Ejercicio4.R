@@ -10,7 +10,7 @@ primero <-function(x,k=1){
 
 ultimo <-function(x,k=1){
         #Imprimiendo los k valores escogidos empezando desde el último
-        x[length(x)-(k-1):0]
+        x[-c(1:k)]
       
 }
 
@@ -23,16 +23,18 @@ primero <-function(x,k=1){
 
 ultimo <-function(x,k=1){
         if (k > length(x))      x
-        else    x[length(x)-(k-1):0]
+        else    x[-c(1:k)]
 }
 
 
 #Respuesta 4-c: MODIFICANDO, CONDICION,NA
-primero <-function(x,k=1){
-        x[1:k]
+primero<- function(x,k=1)
+{
+        if(k>length(x)) c(rep(NA,k-length(x)),x)
+        else  x[-c(1:k)]
 }
 ultimo <- function(x,k=1){
         if (k > length(x))        x<-rep("NA",k-length(x)+1)
-        else    x[length(x)-(k-1):0]
+        else    x[-c(1:k)]
 }
 
