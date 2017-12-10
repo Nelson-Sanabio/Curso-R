@@ -1,0 +1,8 @@
+#Nelson Sanabio Maldonado 20152734A
+
+##_Respuesta 1:_
+
+###**¿Cómo cambiará la distribución de la altura entre generaciones?**
+
+####Luego de realizar el programa, se notó en el histograma de que en cada generación masculina donde habia mas frecuencia era alrededor del 160 esto se verifica con la media de rnorm y los demás iban cambiando es decir tenian a veces una frecuencia que no superaba la frecuencia del 160 (alrededor) y por otro lado disminuían
+
