@@ -1,0 +1,211 @@
+---
+title: "Tarea5"
+author: "Nelson Sanabio Maldonado"
+
+---
+# 1)
+```{r}
+x <- c(5,2,1,4)
+y <- rep(1,5)
+```
+
+##Predice las soluciones antes de escribir los comandos
+### (a) 
+> sum(x) = 12  
+  range(x) = 1 5   
+  sum(y) = 5  
+  length(y) = 5
+
+### (b) 
+####Concatena
+> c(x,y,13) = 5 2 1 4 1 1 1 1 1 13
+
+### (c)
+####Usando la definición
+> x[4] * y[2] = 4 
+  x[2:4] + x[1:3] = 7 3 5
+
+### (d)
+
+> x <= 2 = F T T F # Retorna T o F si cumplen con la condición  
+  x[x<=2] = 2 1 #Utiliza el valor logico y retorna los valores   
+  x[(x != 5) & (x>3)]  = 4 #Utilizando lo dicho anteriormente  
+
+### (e)
+> rep(1:4,2) = 1 2 3 4 1 2 3 4   
+  rep(1:4, each = 2) = 1 1 2 2 3 3 4 4  
+  rep(1:4,c(2,1,2,1)) = 1 1 2 3 3 4  
+  rep(1:4, each = 2, len = 10) = 1 1 2 2 3 3 4 4 1 1
+  
+### (f)
+> 2:3^2 = 2 3 4 5 6 7 8 9 #se expresa 2:9 
+  seq(from = 2, to = -3) * c(-1,1) = 2 1 0 -1 -2 -3
+
+# 2)
+
+> Sabemos que los vectores son de una dimensión ademas puede ser solamente de un tipo de variable
+```{r}
+x <- c(5,3,6)
+y <- c("H","O","L","A")
+x
+y
+```
+
+> La matrices son como si estuvieran dos vectores (bidimensional), pueden ser cuadraticas como no también
+```{r}
+x <- matrix(c(3,4,3,4,5), nrow = 2, ncol = 3)
+x
+```
+
+> Uno podrian confundir con las matrices pero no son iguales , porque los arrays son de varias dimensiones
+
+```{r}
+x <- array(c(5,6,2),c(4,4,1))
+x
+```
+
+> Listas como ya sabemos en C es una estructura donde unimos tipos de estructuras y tienen difetentes tipos de variable
+
+```{r}
+Yo <- list(Nombre = "Nelson", Apellido = "Sanabio", DNI = "73077036", Edad =21 ,Amigos = c("Angela","Gerson","Italo","Manuel"),Pais = "Perú")
+Yo
+```
+
+
+> cbind() sirve para combinar por columnas y es lo mismo para rbind() pero para filas y el merge() como su nombre dice combinar, hace combinar con cada uno de segunda fila osea todos los casos posibles
+
+```{r}
+x <- c(1:5)
+y <- c(10:15)
+cbind(x,y)
+rbind(x,y)
+merge(x,y)
+```
+
+# 3)
+### a)
+```{r}
+x<- c(4.3,3.1,8.2,8.2,3.2,0.9,1.6,6.5)
+y <- matrix(x, nrow= 4, ncol= 2, byrow = T)
+y
+```
+
+### b)
+
+```{r}
+y <- y[-1,]
+y
+dim(y)
+
+```
+
+### C)
+```{r}
+#La función sort sirve para ordenar de menor a mayor
+y[,2] <- sort(y[,2]) 
+y
+ye <- y #copiando para usar en la alternatica e
+
+```
+### d)
+```{r}
+y <- matrix(y[-4,-1])
+y
+is.matrix(y)
+
+```
+### e)
+```{r}
+x <-matrix(c(ye[3,],ye[1,]),nrow = 2, byrow = T)
+x
+dim(x)
+```
+
+# 4)
+
+```{r}
+A<- matrix(c(1,2,2,4,7,6), nrow = 3, byrow = T)
+B<- matrix(seq(10,60,by=10),nrow=3,byrow = T)
+A     
+B
+produc <- ((2/7) * A) - B
+produc
+     
+```
+# 5)
+```{r}
+A <- matrix( c(1,2,7), nrow = 3)
+B <- matrix(c(3,4,8), nrow = 3)
+A
+B
+# A%*%B No es posible
+t(A) %*% B
+t(B) %*% (A%*%t(A))
+I <- diag(3)
+M <- ((B %*% t(B)) + (A %*% t(A)) - 100*I)
+solve(M) #Halla la inversa
+
+```
+# 6)
+```{r}
+x <- diag( c(seq(10,0), seq(1,11)), nrow= 21)
+x
+
+```
+# 7)
+```{r}
+A <- diag( c(2,3,5,-1), nrow = 4)
+A
+I <- diag(4) 
+I
+ solve(A) %*% A - I
+```
+
+# 8)
+```{r}
+p<- seq(from = 1, to=5)+rep(0:4,each = 5)
+hankel <- matrix(p, nrow = 5)
+hankel
+
+#Funcion Hankel
+fhankel <- function(A){
+        cat(length(A))
+        orden <- (length(A)+1)/2
+        p<- rep(seq(1:orden),orden) + rep(seq(0,orden-1))
+        hankel<-matrix(A[p],nrow =orden,byrow = F)
+        hankel
+        
+}
+fhankel(10:29)
+fhankel(1:24)
+```
+# 9)
+```{r}
+hilbert <- function(orden){ 
+        x<- 1:orden ; 
+        1/ outer(x-1,x,"+") #c(dim(i-1),dim(i)) con un operador 
+}
+hilbert(4)
+solve(hilbert(10))
+#El QR es el como el producto de una matriz ortogonal por un triangular superior
+qr.solve(hilbert(10),tol = 0)
+
+```
+# 10)
+```{r}
+A <- array(1:24, dim=c(4,3,2))
+cat("Matriz generada")
+A
+#Extrayendo de la matriz A
+B <- A[,,2]
+cat("Matriz M ")
+B
+cat("¿Será una matriz?")
+is.matrix(B) 
+
+C <- array(c(A,B), dim=c(4,3,3))
+cat("Nueva Matriz de A y B")
+C
+```
+
+
